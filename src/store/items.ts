@@ -1,10 +1,7 @@
 import {
-  createReducer,
   createSelector,
   createSlice,
-  PayloadAction,
 } from "@reduxjs/toolkit";
-import { create } from "domain";
 import { RootState } from ".";
 import { Item } from "../types";
 
@@ -28,6 +25,15 @@ const ITEMS: readonly Item[] = [
   {
     id: "32844",
     name: "Oranges",
+    price: {
+      amount: 199,
+      divisor: 100,
+      perKg: true,
+    },
+  },
+  {
+    id: "34242",
+    name: "Bananas",
     price: {
       amount: 199,
       divisor: 100,

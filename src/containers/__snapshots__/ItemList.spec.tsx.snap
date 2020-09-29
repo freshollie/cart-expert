@@ -1,0 +1,127 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ItemList should display nothing when there are no items 1`] = `
+<DocumentFragment>
+  <div
+    class="item-list"
+  />
+</DocumentFragment>
+`;
+
+exports[`ItemList should display the list of items in the store 1`] = `
+<DocumentFragment>
+  <div
+    class="item-list"
+  >
+    <div
+      class="item"
+      data-testid="item-beans"
+    >
+      <h4>
+        Beans
+      </h4>
+      <div
+        data-testid="item-price"
+      >
+        0.50p Each
+      </div>
+      <div
+        class="item-controls"
+      >
+         
+        <button
+          data-testid="item-remove"
+          disabled=""
+        >
+          -
+        </button>
+        <div
+          data-testid="cart-amount"
+        >
+          0
+        </div>
+        <button
+          data-testid="item-add"
+        >
+          +
+        </button>
+      </div>
+    </div>
+    <div
+      class="item"
+      data-testid="item-coke"
+    >
+      <h4>
+        Coke
+      </h4>
+      <div
+        data-testid="item-price"
+      >
+        0.70p Each
+      </div>
+      <div
+        class="item-controls"
+      >
+         
+        <button
+          data-testid="item-remove"
+          disabled=""
+        >
+          -
+        </button>
+        <div
+          data-testid="cart-amount"
+        >
+          0
+        </div>
+        <button
+          data-testid="item-add"
+        >
+          +
+        </button>
+      </div>
+    </div>
+    <div
+      class="item"
+      data-testid="item-oranges"
+    >
+      <h4>
+        Oranges
+      </h4>
+      <div
+        data-testid="item-price"
+      >
+        £1.99 Per KG
+      </div>
+      <div
+        class="item-controls"
+      >
+        <button
+          data-testid="item-remove-all"
+          disabled=""
+        >
+          Remove
+        </button>
+        <button>
+          100g
+        </button>
+        <button>
+          200g
+        </button>
+        <button>
+          300g
+        </button>
+        <button>
+          400g
+        </button>
+        <button>
+          500g
+        </button>
+        <button>
+          600g
+        </button>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

@@ -27,5 +27,14 @@ Array [
       "perKg": true,
     },
   },
+  Object {
+    "id": "34242",
+    "name": "Bananas",
+    "price": Object {
+      "amount": 199,
+      "divisor": 100,
+      "perKg": true,
+    },
+  },
 ]
 `;

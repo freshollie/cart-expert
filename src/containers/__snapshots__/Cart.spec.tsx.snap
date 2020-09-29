@@ -1,0 +1,229 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Cart should display a message when there are no items in the cart 1`] = `
+<DocumentFragment>
+  <div
+    class="cart-container"
+    data-testid="cart"
+  >
+    <h2>
+      Cart
+    </h2>
+    <b
+      data-testid="cart-no-items-message"
+    >
+      No items in cart
+    </b>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Cart should display discounts of products 1`] = `
+<DocumentFragment>
+  <div
+    class="cart-container"
+    data-testid="cart"
+  >
+    <h2>
+      Cart
+    </h2>
+    <table
+      class="cart-details"
+    >
+      <tbody>
+        <tr>
+          <td>
+            Beans
+          </td>
+          <td>
+            0.50
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Beans
+          </td>
+          <td>
+            0.50
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Beans
+          </td>
+          <td>
+            0.50
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Coke
+          </td>
+          <td>
+            0.70
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Coke
+          </td>
+          <td>
+            0.70
+          </td>
+        </tr>
+        <tr>
+          <td>
+            ---
+          </td>
+          <td />
+        </tr>
+        <tr>
+          <td />
+          <td />
+        </tr>
+        <tr>
+          <td>
+            <b>
+              Sub Total
+            </b>
+          </td>
+          <td>
+            <b>
+              2.90
+            </b>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Beans 3 for 2
+          </td>
+          <td>
+            -0.50
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Coke 2 for £1
+          </td>
+          <td>
+            -0.40
+          </td>
+        </tr>
+        <tr>
+          <td>
+            ----
+          </td>
+          <td />
+        </tr>
+        <tr>
+          <td>
+            <b>
+              Total Savings
+            </b>
+          </td>
+          <td>
+            -0.90
+          </td>
+        </tr>
+        <tr>
+          <td
+            class="break"
+          />
+          <td
+            class="break"
+          />
+        </tr>
+        <tr>
+          <td>
+            <b>
+              Total to pay
+            </b>
+          </td>
+          <td>
+            <b>
+              2.00
+            </b>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Cart should handle displaying the current items in the cart 1`] = `
+<DocumentFragment>
+  <div
+    class="cart-container"
+    data-testid="cart"
+  >
+    <h2>
+      Cart
+    </h2>
+    <table
+      class="cart-details"
+    >
+      <tbody>
+        <tr>
+          <td>
+            Beans
+          </td>
+          <td>
+            0.50
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Coke
+          </td>
+          <td>
+            0.70
+          </td>
+        </tr>
+        <tr>
+          <td>
+            ---
+          </td>
+          <td />
+        </tr>
+        <tr>
+          <td />
+          <td />
+        </tr>
+        <tr>
+          <td>
+            <b>
+              Sub Total
+            </b>
+          </td>
+          <td>
+            <b>
+              1.20
+            </b>
+          </td>
+        </tr>
+        <tr>
+          <td
+            class="break"
+          />
+          <td
+            class="break"
+          />
+        </tr>
+        <tr>
+          <td>
+            <b>
+              Total to pay
+            </b>
+          </td>
+          <td>
+            <b>
+              1.20
+            </b>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</DocumentFragment>
+`;

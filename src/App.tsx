@@ -1,15 +1,17 @@
-import React from 'react';
-import './App.css';
-import ItemList from './containers/ItemList';
-import Cart from './containers/Cart';
+import React from "react";
+import "./App.css";
+import ItemList from "./containers/ItemList";
+import Cart from "./containers/Cart";
 
-function App() {
-  return (
-    <div className="App">
+const App: React.FC = () => (
+  <div className="App">
+    <div className="container left">
       <ItemList />
+    </div>
+    <div className="container right">
       <Cart />
     </div>
-  );
-}
+  </div>
+);
 
 export default App;

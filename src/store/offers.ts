@@ -1,5 +1,4 @@
-import { createSelector, createSlice } from "@reduxjs/toolkit";
-import { create } from "domain";
+import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from ".";
 import { Offer } from "../types";
 
@@ -10,6 +9,15 @@ const OFFERS: readonly Offer[] = [
     qualifier: 3,
     name: "3 for 2 on all Beans",
     for: 2,
+  },
+  {
+    itemId: "39845",
+    qualifier: 2,
+    name: "2 for £1 on all coke",
+    price: {
+      amount: 100,
+      divisor: 100,
+    },
   },
   {
     itemId: "39845",

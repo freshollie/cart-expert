@@ -1,9 +1,22 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { useSelector } from "react-redux";
 import { selectCartItems } from "../store/cart";
-import { Discount, selectCheckoutDetails } from "../store/checkout";
-import { selectItembyId, selectItemsLookup } from "../store/items";
-import { isPriceOffer } from "../types";
+import { selectCheckoutDetails } from "../store/checkout";
+import { selectItemsLookup } from "../store/items";
+import { isPriceOffer, Offer, Price } from "../types";
+import "./Cart.css";
+
+const formatOfferPrice = (offer: Offer): string | number => {
+  if (isPriceOffer(offer)) {
+    const price = offer.price.amount / offer.price.divisor;
+    return Math.floor(price) === price ? `£${price}` : `${price.toFixed(2)}p`;
+  }
+  return offer.for;
+};
+
+const toPriceValue = (price: Price): number => price.amount / price.divisor;
+
+const formatPrice = (price: Price): string => toPriceValue(price).toFixed(2);
 
 const Cart: React.FC = () => {
   const items = useSelector(selectCartItems);
@@ -11,74 +24,59 @@ const Cart: React.FC = () => {
   const { total, subTotal, discounts } = useSelector(selectCheckoutDetails);
 
   return (
-    <div>
+    <div className="cart-container" data-testid="cart">
       <h2>Cart</h2>
       {items.length > 0 ? (
-        <table>
+        <table className="cart-details">
           <tbody>
-            {items
-              .map(({ item, amount }) =>
-                new Array(item.price.perKg ? 1 : amount).fill(0).map((_, i) => (
-                  <>
-                    <tr key={item.id + i}>
-                      <td>{item.name}</td>
+            {items.map(({ item, amount }) =>
+              new Array(item.price.perKg ? 1 : amount).fill(0).map((_, i) => (
+                <Fragment key={item.id + i}>
+                  <tr>
+                    <td>{item.name}</td>
+                    <td>{!item.price.perKg && formatPrice(item.price)}</td>
+                  </tr>
+                  {item.price.perKg && (
+                    <tr key={item.id + "kg"}>
                       <td>
-                        {!item.price.perKg &&
-                          (item.price.amount / item.price.divisor).toFixed(2)}
+                        {amount.toFixed(3)} kg @ {toPriceValue(item.price)}/kg
+                      </td>
+                      <td>
+                        {formatPrice({
+                          amount: item.price.amount * amount,
+                          divisor: item.price.divisor,
+                        })}
                       </td>
                     </tr>
-                    {item.price.perKg && (
-                      <tr key={item.id + "kg"}>
-                        <td>
-                          {amount.toFixed(3)} kg @{" "}
-                          {item.price.amount / item.price.divisor}/kg
-                        </td>
-                        <td>
-                          {(
-                            (item.price.amount / item.price.divisor) *
-                            amount
-                          ).toFixed(2)}
-                        </td>
-                      </tr>
-                    )}
-                  </>
-                ))
-              )
-              .flat()}
+                  )}
+                </Fragment>
+              ))
+            )}
             <tr>
               <td>---</td>
               <td></td>
             </tr>
             <tr>
-              <td> </td>
+              <td></td>
               <td></td>
             </tr>
             <tr>
-              <td>Sub Total</td>
-              <td>{(subTotal.amount / subTotal.divisor).toFixed(2)}</td>
+              <td>
+                <b>Sub Total</b>
+              </td>
+              <td>
+                <b>{formatPrice(subTotal)}</b>
+              </td>
             </tr>
-            {discounts
-              .map(({ offer, savings }, i) => (
-                <>
-                  <tr key={JSON.stringify(offer) + i}>
-                    <td>
-                      {itemLookup[offer.itemId].name} {offer.qualifier} for{" "}
-                      {isPriceOffer(offer)
-                        ? Math.floor(
-                            offer.price.amount / offer.price.divisor
-                          ) ===
-                          offer.price.amount / offer.price.divisor
-                          ? `£${offer.price.amount / offer.price.divisor}`
-                          : `${(
-                              offer.price.amount / offer.price.divisor
-                            ).toFixed(2)}p`
-                        : offer.for}
-                    </td>
-                    <td>-{(savings.amount / savings.divisor).toFixed(2)}</td>
-                  </tr>
-                </>
-              ))
-              .flat()}
+            {discounts.map(({ offer, savings }, i) => (
+              <tr key={JSON.stringify(offer) + i}>
+                <td>
+                  {itemLookup[offer.itemId].name} {offer.qualifier} for{" "}
+                  {formatOfferPrice(offer)}
+                </td>
+                <td>-{formatPrice(savings)}</td>
+              </tr>
+            ))}
             {discounts.length > 0 && (
               <>
                 <tr>
@@ -86,28 +84,35 @@ const Cart: React.FC = () => {
                   <td></td>
                 </tr>
                 <tr>
-                  <td>Total Savings</td>
+                  <td>
+                    <b>Total Savings</b>
+                  </td>
                   <td>
                     -
-                    {((subTotal.amount - total.amount) / total.divisor).toFixed(
-                      2
-                    )}
+                    {formatPrice({
+                      amount: subTotal.amount - total.amount,
+                      divisor: total.divisor,
+                    })}
                   </td>
                 </tr>
               </>
             )}
             <tr>
-              <td>----------------------</td>
-              <td></td>
+              <td className="break" />
+              <td className="break" />
             </tr>
             <tr>
-              <td>Total</td>
-              <td>{(total.amount / total.divisor).toFixed(2)}</td>
+              <td>
+                <b>Total to pay</b>
+              </td>
+              <td>
+                <b>{formatPrice(total)}</b>
+              </td>
             </tr>
           </tbody>
         </table>
       ) : (
-        <div>No items in cart</div>
+        <b data-testid="cart-no-items-message">No items in cart</b>
       )}
     </div>
   );
