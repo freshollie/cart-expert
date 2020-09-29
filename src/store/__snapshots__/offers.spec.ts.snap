@@ -17,5 +17,14 @@ Array [
     },
     "qualifier": 2,
   },
+  Object {
+    "itemId": "39845",
+    "name": "2 for £1 on all coke",
+    "price": Object {
+      "amount": 100,
+      "divisor": 100,
+    },
+    "qualifier": 2,
+  },
 ]
 `;
