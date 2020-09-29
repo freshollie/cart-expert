@@ -71,8 +71,7 @@ describe("cart", () => {
       store.dispatch(cart.actions.remove(item1));
 
       const items = useSelector(selectCartItems, store);
-      expect(items).toEqual([
-      ]);
+      expect(items).toEqual([]);
     }
     {
       store.dispatch(cart.actions.add(item2));
@@ -82,16 +81,14 @@ describe("cart", () => {
       store.dispatch(cart.actions.remove(item2));
 
       const items = useSelector(selectCartItems, store);
-      expect(items).toEqual([
-      ]);
+      expect(items).toEqual([]);
     }
 
     {
       store.dispatch(cart.actions.remove(item3));
 
       const items = useSelector(selectCartItems, store);
-      expect(items).toEqual([
-      ]);
+      expect(items).toEqual([]);
     }
   });
 });
