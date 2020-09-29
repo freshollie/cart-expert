@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`selectOffers should return a list of offers 1`] = `
+Array [
+  Object {
+    "for": 2,
+    "itemId": "34583",
+    "name": "3 for 2 on all Beans",
+    "qualifier": 3,
+  },
+  Object {
+    "itemId": "39845",
+    "name": "2 for £1 on all coke",
+    "price": Object {
+      "amount": 100,
+      "divisor": 100,
+    },
+    "qualifier": 2,
+  },
+]
+`;

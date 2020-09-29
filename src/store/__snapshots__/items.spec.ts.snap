@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`items should provide the list of available items 1`] = `
+Array [
+  Object {
+    "id": "34583",
+    "name": "Beans",
+    "price": Object {
+      "amount": 50,
+      "divisor": 100,
+    },
+  },
+  Object {
+    "id": "39845",
+    "name": "Coke",
+    "price": Object {
+      "amount": 70,
+      "divisor": 100,
+    },
+  },
+  Object {
+    "id": "32844",
+    "name": "Oranges",
+    "price": Object {
+      "amount": 199,
+      "divisor": 100,
+      "perKg": true,
+    },
+  },
+]
+`;
