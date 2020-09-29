@@ -4,7 +4,7 @@
 
 A React Hooks, Redux, TypeScript shopping cart implementation. Tested with Jest and React Testing Library.
 
-## Runing
+## Running
 
 Install dependencies
 
@@ -14,13 +14,13 @@ $ yarn
 
 Start application
 
-```
+```bash
 $ yarn start
 ```
 
 Test app
 
-```
+```bash
 $ yarn test
 ```
 
